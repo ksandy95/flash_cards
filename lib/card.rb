@@ -4,7 +4,7 @@
 # .category
 
 class Card
-  attr_accessor :category, :question, :answer
+  attr_reader :category, :question, :answer
 
   def initialize(question, answer, category)
     @category = category
