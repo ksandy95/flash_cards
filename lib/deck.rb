@@ -9,7 +9,6 @@ class Deck
    def cards_in_category(blah)
      category_deck_one = []
      cards.each do |card|
-       binding.pry
        if card.category == blah
          category_deck_one << card
        end
