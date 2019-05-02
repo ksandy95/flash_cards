@@ -35,11 +35,18 @@ class TurnTest < Minitest::Test
     assert_equal true, turn.correct?
   end
 
+  def test_it_is_incorrect?
+    card = Card.new("What is the capital of Colorado?", "Denver", :Geography)
+    turn = Turn.new("Miami", card)
+
+    assert_equal false, turn.correct?
+  end
+
   def test_it_gives_correct_feedback
     card = Card.new("What is the capital of Colorado?", "Denver", :Geography)
     turn_1 = Turn.new("Denver", card)
     turn_2 = Turn.new("Jacksonville", card)
-
+    binding.pry
     assert_equal "Correct!", turn_1.feedback
     assert_equal "Incorrect!", turn_2.feedback
 

@@ -6,7 +6,7 @@ attr_reader :guess, :card
   end
 
   def correct?
-     @guess == self.card.answer
+     @guess == @card.answer
   end
 
   def feedback
