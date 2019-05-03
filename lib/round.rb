@@ -1,37 +1,40 @@
-#### future kelly, refactor your code for as many one liners as possible!!
-
-
 class Round
-  attr_reader :deck
+  attr_reader :deck, :turns, :count
 
   def initialize(deck)
-    @deck = Deck.new([])
+    @deck = deck
+    @turns = []
+    @count = 0
   end
 
   def current_card
-    # need this method
+
+    @deck.cards[@turns.count]
   end
 
-  def take_turn
-    # need this method
+  def take_turn(guess)
+    turn = Turn.new(guess, current_card)
+    @turns << turn
+    if turn.correct?
+      @count += 1
+    end
+    return turn
   end
 
-  def number_correct_by_category
-    # need this method
-    # single line method
+  def number_correct
+    @count
+  end
+
+  def number_correct_by_category(category)
+    #### review and understand in AM
+    @turns.find_all do |turn|
+    turn.correct? && turn.card.category == category
+    end.count
+
   end
 
   def percent_correct
-    # need this method
+    
 
-    # instance variable is a good idea
-  end
-
-  def percent_correct_by_category
-    # need this method
-  end
-
-  def turns
-    # might already have this method?
   end
 end
